@@ -71,3 +71,21 @@ function countBytes(fileName) {
 if (options.bytes) {
   console.log(`Number of bytes in ${options.bytes}: ${countBytes(options.bytes)}`);
 }
+
+// Function for when no flag is passed
+function defaultCase(fileName) {
+  // Should return number of lines, words, bytes and characters
+  let bytes = countBytes(fileName);
+  let chars = countChars(fileName);
+  let words = countWords(fileName);
+  let lines = countLines(fileName);
+
+  console.log(`Number of bytes: ${bytes}`);
+  console.log(`Number of chars: ${chars}`);
+  console.log(`Number of words: ${words}`);
+  console.log(`Number of lines: ${lines}`);
+}
+
+if (process.argv.length < 5) {
+  defaultCase(process.argv[3]);
+}

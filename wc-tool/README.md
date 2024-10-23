@@ -4,7 +4,7 @@
 
 ## Features
 
-- Count lines, words, and characters in a file
+- Count lines, words, bytes and characters in a file
 - Supports multiple files
 - Easy to use and lightweight
 
@@ -23,7 +23,7 @@ make
 To use `wc-tool`, run the following command:
 
 ```sh
-./wc-tool [options] [file...]
+node ./wc_tool.js [options] [file...]
 ```
 
 ### Options
@@ -38,13 +38,13 @@ To use `wc-tool`, run the following command:
 Count lines, words, and characters in a single file:
 
 ```sh
-./wc-tool -lwc filename.txt
+node ./wc_tool -lwc filename.txt
 ```
 
 Count lines in multiple files:
 
 ```sh
-./wc-tool -l file1.txt file2.txt
+node ./wc_tool -l file1.txt file2.txt
 ```
 
 ## Contributing
@@ -57,4 +57,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any questions or suggestions, please open an issue or contact me at [judescriva8@gmail.com].
+For any questions or suggestions, please open an issue or contact me at [Email](judescriva8@gmail.com).
