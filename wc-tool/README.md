@@ -30,7 +30,8 @@ To use `wc-tool`, run the following command:
 
 - `-l` : Print the number of lines
 - `-w` : Print the number of words
-- `-c` : Print the number of characters
+- `-c` : Print the number of bytes
+- `-m` : Print the number of characters (excluding spaces)
 
 ### Examples
 
