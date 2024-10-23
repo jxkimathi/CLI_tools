@@ -8,19 +8,19 @@ program.command('ccww')
 
 // Command options are defined here
 program
-  .option('-l --line <FILENAME>', 'Returns the number of lines in a file')
-  .option('-w --word <FILENAME>', 'Returns the number of words in a file')
-  .option('-m --chars <FILENAME>', 'Returns the number of characters in a file')
-  .option('-c, --bytes <FILENAME>', 'Returns the number of bytes in a file')
+  .option('-l --line <fileName>', 'Returns the number of lines in a file')
+  .option('-w --word <fileName>', 'Returns the number of words in a file')
+  .option('-m --chars <fileName>', 'Returns the number of characters in a file')
+  .option('-c, --bytes <fileName>', 'Returns the number of bytes in a file')
   
 // Parse the input 
 program.parse(process.argv);
 const options = program.opts();
 
 // Function to count the number of lines in a file
-function countLines(filename) {
+function countLines(fileName) {
   // Read the file and convert it to a string
-  let text = readFileSync(filename).toString();
+  let text = readFileSync(fileName).toString();
   let lineCount = text.split('\n').length;
 
   return lineCount;
@@ -31,10 +31,10 @@ if (options.line) {
 }
 
 // Function to count the number of words in a file
-function countWords(filename) {
+function countWords(fileName) {
   let wordCount = 0;
   // Read the file and seperate it line by line
-  let text = readFileSync(filename).toString().split('\n');
+  let text = readFileSync(fileName).toString().split('\n');
 
   // Iterate through every line to find number of words
   for (const line of text) {
@@ -46,4 +46,28 @@ function countWords(filename) {
 
 if (options.word) {
   console.log(`Number of words in ${options.word}: ${countWords(options.word)}`);
+}
+
+// Function to count the number of characters in a file
+function countChars(fileName) {
+  // Read the file and get the length of characters
+  let charCount = readFileSync(fileName).toString().length;
+
+  return charCount;
+}
+
+if (options.chars) {
+  console.log(`Number of characters in ${options.chars}: ${countChars(options.chars)}`);
+}
+
+// Function to count the number of bytes in a file
+function countBytes(fileName) {
+  // Read the file and get the length
+  let byteCount = readFileSync(fileName).length;
+
+  return byteCount;
+}
+
+if (options.bytes) {
+  console.log(`Number of bytes in ${options.bytes}: ${countBytes(options.bytes)}`);
 }
