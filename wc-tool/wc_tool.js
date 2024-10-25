@@ -1,6 +1,6 @@
 // Print newline, word and byte counts for each file
-const { program } = require("commander");
-const { readFileSync } = require("fs");
+const { program } = require('commander');
+const { readFileSync } = require('fs');
 
 // Command is defined here
 program.command('ccww')
@@ -11,17 +11,17 @@ program
   .option('-l --line <fileName>', 'Returns the number of lines in a file')
   .option('-w --word <fileName>', 'Returns the number of words in a file')
   .option('-m --chars <fileName>', 'Returns the number of characters in a file')
-  .option('-c, --bytes <fileName>', 'Returns the number of bytes in a file')
-  
-// Parse the input 
+  .option('-c, --bytes <fileName>', 'Returns the number of bytes in a file');
+
+// Parse the input
 program.parse(process.argv);
 const options = program.opts();
 
 // Function to count the number of lines in a file
-function countLines(fileName) {
+function countLines (fileName) {
   // Read the file and convert it to a string
-  let text = readFileSync(fileName).toString();
-  let lineCount = text.split('\n').length;
+  const text = readFileSync(fileName).toString();
+  const lineCount = text.split('\n').length;
 
   return lineCount;
 }
@@ -31,10 +31,10 @@ if (options.line) {
 }
 
 // Function to count the number of words in a file
-function countWords(fileName) {
+function countWords (fileName) {
   let wordCount = 0;
   // Read the file and seperate it line by line
-  let text = readFileSync(fileName).toString().split('\n');
+  const text = readFileSync(fileName).toString().split('\n');
 
   // Iterate through every line to find number of words
   for (const line of text) {
@@ -49,9 +49,9 @@ if (options.word) {
 }
 
 // Function to count the number of characters in a file
-function countChars(fileName) {
+function countChars (fileName) {
   // Read the file and get the length of characters
-  let charCount = readFileSync(fileName).toString().length;
+  const charCount = readFileSync(fileName).toString().length;
 
   return charCount;
 }
@@ -61,9 +61,9 @@ if (options.chars) {
 }
 
 // Function to count the number of bytes in a file
-function countBytes(fileName) {
+function countBytes (fileName) {
   // Read the file and get the length
-  let byteCount = readFileSync(fileName).length;
+  const byteCount = readFileSync(fileName).length;
 
   return byteCount;
 }
@@ -73,12 +73,12 @@ if (options.bytes) {
 }
 
 // Function for when no flag is passed
-function defaultCase(fileName) {
+function defaultCase (fileName) {
   // Should return number of lines, words, bytes and characters
-  let bytes = countBytes(fileName);
-  let chars = countChars(fileName);
-  let words = countWords(fileName);
-  let lines = countLines(fileName);
+  const bytes = countBytes(fileName);
+  const chars = countChars(fileName);
+  const words = countWords(fileName);
+  const lines = countLines(fileName);
 
   console.log(`Number of bytes: ${bytes}`);
   console.log(`Number of chars: ${chars}`);
